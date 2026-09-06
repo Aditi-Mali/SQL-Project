@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Day 7 SQL Project - Output</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #d1d5db;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #2563eb;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 11px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .kpi-table th {
+            text-align: center;
+        }
+
+        .kpi-table td {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .high {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .medium {
+            color: #ca8a04;
+            font-weight: bold;
+        }
+
+        .low {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #1f2937;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+            table {
+                font-size: 13px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Mini Project</h1>
+    <p>Day 7 - Retail SQL Analysis - Output</p>
+</header>
+
+<div class="container">
+
+    <!-- 1. JOIN + CASE OUTPUT -->
+    <div class="section">
+        <h2>1. JOIN + CASE Analysis Output</h2>
+
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Date</th>
+                <th>Customer Name</th>
+                <th>Region</th>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Sales</th>
+                <th>Order Status</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>2026-01-05</td>
+                <td>Rahul Patil</td>
+                <td>West</td>
+                <td>Laptop</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹55,000</td>
+                <td class="high">High Value</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>2026-01-08</td>
+                <td>Priya Sharma</td>
+                <td>West</td>
+                <td>Smartphone</td>
+                <td>Electronics</td>
+                <td>2</td>
+                <td>₹50,000</td>
+                <td class="high">High Value</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>2026-01-12</td>
+                <td>Amit Kulkarni</td>
+                <td>Central</td>
+                <td>Headphones</td>
+                <td>Accessories</td>
+                <td>3</td>
+                <td>₹7,500</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>2026-01-15</td>
+                <td>Sneha Joshi</td>
+                <td>West</td>
+                <td>Monitor</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹12,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>2026-01-20</td>
+                <td>Pooja Deshmukh</td>
+                <td>Central</td>
+                <td>Keyboard</td>
+                <td>Accessories</td>
+                <td>2</td>
+                <td>₹3,000</td>
+                <td class="low">Low Value</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>2026-02-02</td>
+                <td>Ritesh More</td>
+                <td>West</td>
+                <td>Mouse</td>
+                <td>Accessories</td>
+                <td>5</td>
+                <td>₹4,000</td>
+                <td class="low">Low Value</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>2026-02-10</td>
+                <td>Vikram Singh</td>
+                <td>North</td>
+                <td>Printer</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹18,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>2026-02-14</td>
+                <td>Shravani Pawar</td>
+                <td>South</td>
+                <td>Tablet</td>
+                <td>Electronics</td>
+                <td>2</td>
+                <td>₹60,000</td>
+                <td class="high">High Value</td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td>2026-02-18</td>
+                <td>Jyoti Shah</td>
+                <td>West</td>
+                <td>Webcam</td>
+                <td>Accessories</td>
+                <td>2</td>
+                <td>₹7,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>2026-02-25</td>
+                <td>Riya Mehta</td>
+                <td>North</td>
+                <td>External Hard Drive</td>
+                <td>Storage</td>
+                <td>3</td>
+                <td>₹19,500</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>11</td>
+                <td>2026-03-01</td>
+                <td>Rahul Patil</td>
+                <td>West</td>
+                <td>Smartphone</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹25,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>12</td>
+                <td>2026-03-05</td>
+                <td>Priya Sharma</td>
+                <td>West</td>
+                <td>Headphones</td>
+                <td>Accessories</td>
+                <td>2</td>
+                <td>₹5,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>13</td>
+                <td>2026-03-10</td>
+                <td>Amit Kulkarni</td>
+                <td>Central</td>
+                <td>Laptop</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹55,000</td>
+                <td class="high">High Value</td>
+            </tr>
+
+            <tr>
+                <td>14</td>
+                <td>2026-03-15</td>
+                <td>Sneha Joshi</td>
+                <td>West</td>
+                <td>Mouse</td>
+                <td>Accessories</td>
+                <td>4</td>
+                <td>₹3,200</td>
+                <td class="low">Low Value</td>
+            </tr>
+
+            <tr>
+                <td>15</td>
+                <td>2026-03-20</td>
+                <td>Pooja Deshmukh</td>
+                <td>Central</td>
+                <td>Monitor</td>
+                <td>Electronics</td>
+                <td>2</td>
+                <td>₹24,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>16</td>
+                <td>2026-04-02</td>
+                <td>Ritesh More</td>
+                <td>West</td>
+                <td>Tablet</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹30,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>17</td>
+                <td>2026-04-08</td>
+                <td>Vikram Singh</td>
+                <td>North</td>
+                <td>Smartphone</td>
+                <td>Electronics</td>
+                <td>1</td>
+                <td>₹25,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td>2026-04-15</td>
+                <td>Shravani Pawar</td>
+                <td>South</td>
+                <td>Printer</td>
+                <td>Electronics</td>
+                <td>2</td>
+                <td>₹36,000</td>
+                <td class="medium">Medium Value</td>
+            </tr>
+
+            <tr>
+                <td>19</td>
+                <td>2026-04-20</td>
+                <td>Jyoti Shah</td>
+                <td>West</td>
+                <td>Keyboard</td>
+                <td>Accessories</td>
+                <td>3</td>
+                <td>₹4,500</td>
+                <td class="low">Low Value</td>
+            </tr>
+
+            <tr>
+                <td>20</td>
+                <td>2026-04-25</td>
+                <td>Riya Mehta</td>
+                <td>North</td>
+                <td>Laptop</td>
+                <td>Electronics</td>
+                <td>2</td>
+                <td>₹110,000</td>
+                <td class="high">High Value</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- 2. KPI OUTPUT -->
+    <div class="section">
+        <h2>2. KPI Analysis Output</h2>
+
+        <table class="kpi-table">
+            <tr>
+                <th>Total Sales</th>
+                <th>Total Orders</th>
+                <th>Average Order Value</th>
+                <th>Highest Order Value</th>
+            </tr>
+
+            <tr>
+                <td>₹553,700</td>
+                <td>20</td>
+                <td>₹27,685</td>
+                <td>₹110,000</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- 3. REGION CATEGORY -->
+    <div class="section">
+        <h2>3. Sales by Region and Category</h2>
+
+        <table>
+            <tr>
+                <th>Region</th>
+                <th>Category</th>
+                <th>Total Sales</th>
+            </tr>
+
+            <tr>
+                <td>West</td>
+                <td>Electronics</td>
+                <td>₹172,000</td>
+            </tr>
+
+            <tr>
+                <td>South</td>
+                <td>Electronics</td>
+                <td>₹96,000</td>
+            </tr>
+
+            <tr>
+                <td>Central</td>
+                <td>Electronics</td>
+                <td>₹79,000</td>
+            </tr>
+
+            <tr>
+                <td>North</td>
+                <td>Electronics</td>
+                <td>₹43,000</td>
+            </tr>
+
+            <tr>
+                <td>North</td>
+                <td>Storage</td>
+                <td>₹19,500</td>
+            </tr>
+
+            <tr>
+                <td>West</td>
+                <td>Accessories</td>
+                <td>₹11,700</td>
+            </tr>
+
+            <tr>
+                <td>Central</td>
+                <td>Accessories</td>
+                <td>₹10,500</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- 4. MONTHLY SALES -->
+    <div class="section">
+        <h2>4. Monthly Sales Summary</h2>
+
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Total Sales</th>
+            </tr>
+
+            <tr>
+                <td>January 2026</td>
+                <td>₹127,500</td>
+            </tr>
+
+            <tr>
+                <td>February 2026</td>
+                <td>₹108,500</td>
+            </tr>
+
+            <tr>
+                <td>March 2026</td>
+                <td>₹112,200</td>
+            </tr>
+
+            <tr>
+                <td>April 2026</td>
+                <td>₹205,500</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- 5. PRODUCT RANKING -->
+    <div class="section">
+        <h2>5. Product Ranking Output</h2>
+
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Product Name</th>
+                <th>Total Sales</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>Laptop</td>
+                <td>₹220,000</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Smartphone</td>
+                <td>₹100,000</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Tablet</td>
+                <td>₹90,000</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Printer</td>
+                <td>₹54,000</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Monitor</td>
+                <td>₹36,000</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>External Hard Drive</td>
+                <td>₹19,500</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>Headphones</td>
+                <td>₹12,500</td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>Keyboard</td>
+                <td>₹7,500</td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td>Mouse</td>
+                <td>₹7,200</td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>Webcam</td>
+                <td>₹7,000</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- 6. TOP 5 ORDERS -->
+    <div class="section">
+        <h2>6. Top 5 Orders by Sales</h2>
+
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Sales</th>
+            </tr>
+
+            <tr>
+                <td>20</td>
+                <td>₹110,000</td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>₹60,000</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>₹55,000</td>
+            </tr>
+
+            <tr>
+                <td>13</td>
+                <td>₹55,000</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>₹50,000</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- 7. BUSINESS INSIGHTS -->
+    <div class="section">
+        <h2>7. Business Insights</h2>
+
+        <ul>
+            <li>West region generated the highest overall sales.</li>
+            <li>Laptop was the best-performing product with total sales of ₹220,000.</li>
+            <li>April recorded the highest monthly sales of ₹205,500.</li>
+            <li>The average order value was ₹27,685.</li>
+            <li>The highest-value order was Order ID 20 with sales of ₹110,000.</li>
+            <li>Electronics was the strongest-performing category.</li>
+            <li>Accessories generated comparatively lower sales than Electronics.</li>
+            <li>Management should focus on promoting high-performing products such as Laptops, Smartphones and Tablets.</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <p>ZoyaSofts Internship Program</p>
+    <p>Day 7 - Retail SQL Analysis</p>
+</footer>
+
+</body>
+</html>
